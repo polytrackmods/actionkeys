@@ -1,7 +1,7 @@
 import { PolyMod, MixinType, PolyModLoader } from "https://pml.orangy.cfd/PolyTrackMods/PolyModLoader/0.5.0/PolyModLoader.js";
 
 class incMod extends PolyMod {
-    this.steerAmount = 1;
+    steerAmount = 1;
     
     init = function(pml) {
       pml.registerKeybind("Steer 10%", "10steer", "keydown", "Digit1", (e) => {this.steerAmount = 0.1});
