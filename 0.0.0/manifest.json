@@ -1,0 +1,12 @@
+{
+    "polymod": {
+        "name": "Action Keys",
+        "id": "inc_steering",
+        "author": "DoraChad",
+        "targets": [
+            "0.5.0"
+        ],
+        "main": "main.mod.js"
+    },
+    "dependencies": {}
+}
