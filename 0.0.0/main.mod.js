@@ -14,12 +14,13 @@ class incMod extends PolyMod {
       pml.registerKeybind("Steer 70%", "steer70", "keydown", "Digit7", null, (e) => {this.steerAmount = 0.7;console.log("0.7");});
       pml.registerKeybind("Steer 80%", "steer80", "keydown", "Digit8", null, (e) => {this.steerAmount = 0.8;console.log("0.8");});
       pml.registerKeybind("Steer 90%", "steer90", "keydown", "Digit9", null, (e) => {this.steerAmount = 0.9;console.log("0.9");});
-
-      pml.registerSimWorkerFuncMixin("s_", MixinType.INSERT, `g = f < 0 && m < 0 ? Math.min(f, m) : f > 0 && m > 0 ? Math.max(f, m) : f + m,`, `
-        console.log(ActivePolyModLoader.getMod("${this.modID}").steerAmount),
-        g *= ActivePolyModLoader.getMod("${this.modID}").steerAmount,
-      `)
-
     }
+
+    simInit = (pml) => {
+        pml.registerSimWorkerFuncMixin("s_", MixinType.INSERT, `g = f < 0 && m < 0 ? Math.min(f, m) : f > 0 && m > 0 ? Math.max(f, m) : f + m,`, `
+            console.log(ActivePolyModLoader.getMod("${this.modID}").steerAmount),
+            g *= ActivePolyModLoader.getMod("${this.modID}").steerAmount,
+        `)
+    } 
 }
 export const polyMod = new incMod();
