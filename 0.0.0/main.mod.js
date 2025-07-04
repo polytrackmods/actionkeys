@@ -16,7 +16,7 @@ class incMod extends PolyMod {
         pml.registerKeybind("Steer 90%", "steer90", "keydown", "Digit9", null, (e) => {this.steerAmount = 0.9;console.log("0.9");});
 
         pml.registerSimWorkerFuncMixin("s_", MixinType.INSERT, `g = f < 0 && m < 0 ? Math.min(f, m) : f > 0 && m > 0 ? Math.max(f, m) : f + m,`, `
-            g *= ${this}.getMod("${this.modID}").steerAmount,
+            g *= ActivePolyModLoader.getMod("${this.modID}").steerAmount,
         `)
     }
 }
